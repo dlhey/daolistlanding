@@ -1,11 +1,62 @@
 <html>
 
 <head></head>
+
 <body style="height: 100%;width:100%;background-color:black;position:relative;">
-<img src="daolist.png" style="width:200px;height:60px;position:absolute;top:20px;left:20px;"/>
+    <img src="daolist.png" style="z-index:100;width:200px;height:60px;position:absolute;top:20px;left:20px;" />
+    <div id="stars"></div>
 
 
-<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:Arial Black;font-size:50px;color:white;" >Coming soon...</div>
+    <div
+        style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:Arial Black;font-size:50px;color:white;">
+        Coming soon...</div>
 
 </body>
+<style>
+    #stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+    }
+
+    .star {
+        position: absolute;
+        background: #fff;
+        animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
+<script>
+
+    var stars = document.getElementById('stars');
+
+    for (var i = 0; i < 100; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var h = Math.random() * 100;
+        var w = Math.random() * 100;
+        var size = Math.random() * 2;
+        star.style.top = h + '%';
+        star.style.left = w + '%';
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        stars.appendChild(star);
+    } 
+</script>
+
 </html>
